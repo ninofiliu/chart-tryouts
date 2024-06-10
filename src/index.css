@@ -1,0 +1,19 @@
+.container {
+  position: relative;
+  border: 1px solid lime;
+}
+.resizer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  cursor: se-resize;
+  border: none;
+  background-color: lime;
+  padding: 0.5em;
+  font-size: 24px;
+}

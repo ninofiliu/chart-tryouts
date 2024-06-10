@@ -1,2 +1,3 @@
-library,documentation,typescript support,performances,animates on data update,container responsivity,color customization,ticks,community
-echarts,good,good,good,good,good,good,good,community
+library,documentation,typescript support,performances,animations,container responsivity,color customization,ticks,community,disable animation
+echarts,good,good,good,good,good,good,good,good,true
+chartjs,good,good,,bad,good,good,bad,,true
