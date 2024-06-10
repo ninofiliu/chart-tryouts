@@ -1,0 +1,3 @@
+library,leaderboard,line,bar,stackedbar,waterfall,barline,map,bubble,radar,funnel,timeline,donut,sunburst
+echarts,true,true,true,true,true,true,true,true,true,true,true,true,true
+chartjs,true,true,true,true,false,false,false,true,true,false,false,true,unknown
