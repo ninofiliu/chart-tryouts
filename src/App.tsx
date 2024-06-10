@@ -1,5 +1,6 @@
 import Chart from "chart.js/auto";
 import { useState } from "react";
+import { Resizable } from "./Resizable";
 
 const data = Array(20)
   .fill(null)
@@ -11,18 +12,10 @@ const data = Array(20)
   }));
 
 export const App = () => {
-  const [width, setWidth] = useState(500);
-  const [height, setHeight] = useState(500);
   const [chart, setChart] = useState<Chart | null>(null);
 
   return (
-    <div
-      className="container"
-      style={{
-        width: `${width}px`,
-        height: `${height}px`,
-      }}
-    >
+    <Resizable>
       <canvas
         ref={(elt) => {
           if (!elt) return;
@@ -48,19 +41,6 @@ export const App = () => {
           );
         }}
       />
-      <button
-        className="resizer"
-        onMouseDown={(evtDown) => {
-          const onMove = (evtMove: MouseEvent) => {
-            setWidth(width + evtMove.clientX - evtDown.clientX);
-            setHeight(height + evtMove.clientY - evtDown.clientY);
-          };
-          document.addEventListener("mousemove", onMove);
-          document.addEventListener("mouseup", () => {
-            document.removeEventListener("mousemove", onMove);
-          });
-        }}
-      ></button>
-    </div>
+    </Resizable>
   );
 };
