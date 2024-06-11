@@ -1,4 +1,4 @@
 library,documentation,typescript support,performances,animations,container responsivity,color customization,ticks,community,disable animation,can emit event on selection
-echarts,good,good,TODO,good,good,good,good,good,true,true
-chart.js,good,good,2000,bad,good,good,bad,,true,TODO
+echarts,good,good,15000,good,good,good,good,good,true,true
+chart.js,good,good,2000,bad,good,good,bad,good,true,true
 react-charts,bad,good,500,bad,good,good,bad,bad,true,true
