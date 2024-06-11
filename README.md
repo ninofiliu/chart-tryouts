@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# Chart tryouts
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+POC repo for trying out four chart libraries
 
-Currently, two official plugins are available:
+- Echarts
+- Highcharts
+- ChartJS
+- React Charts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Verdict:
 
-## Expanding the ESLint configuration
+Both Echarts and Highcharts have everything that we're looking for in a chart engine:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Support for almost every useful chart we can think of
+- Good documentation and intuitive configuration
+- Declarative pattern (via config objects, so not like d3, which is imperative)
+- Typescript support
 
-- Configure the top-level `parserOptions` property like this:
+Echarts is free and open source while Highcharts is paid ($332/user/year in our case), but has a few more small perks:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Slightly better performances (eg: throttle on resize)
+- [HighchartsGPT](https://www.highcharts.com/chat/gpt/) (Note that AIs like Claude know about Echarts too...)
+- Native React support
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Overall Echarts and Highcharts are not only very similar in usage, they're similar in capabilities, so between an expensive option and a free one I'd chose the free one.
+
+ChartJS and React Charts are way behind, having a worse doc, less intuitive DX, supporting no charts beside the basics, worse animations, etc. Whatever the chart, I don't see any reasons to chose either ChartJS or React Charts over ECharts:
+
+- Chart.js
+  - Can dynamically update the config, but on serie data change, redraws the whole serie
+  - Errors are hard to understand. API can feel awkward. I just couldn't make a linechart with time x axis. The code from the official demo didn't work.
+  - Another awkwardness is event handlers only passing up coordinates that you have to convert back into data points to find the clicked row.
+- React Charts
+  - Docs are very sparse, mostly consisting in a huge codesandbox with all the examples that you have to reverse engineer to understand how things work.
+  - I couldn't really distinguish bugs from misconfigurations.
+  - Options are not JSDoc'ed so that makes things even more difficult.
+
+Tables are available in the [comparisons folder](./comparisons/). The "performance" is the number of rows at which the chart resize starts to jitter visibly (<10fps).
