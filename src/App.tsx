@@ -3,6 +3,7 @@ import { ReactCharts } from "./ReactCharts";
 import { useState } from "react";
 import { ChartJS } from "./ChartJS";
 import { Echarts } from "./Echarts";
+import { Highchart } from "./Highchart";
 
 const generateData = (n: number) =>
   Array(n)
@@ -19,7 +20,7 @@ export const App = () => {
   const n = +ns || 1;
   const data = generateData(n);
 
-  const chartComponents = { ReactCharts, ChartJS, Echarts } as const;
+  const chartComponents = { ReactCharts, ChartJS, Echarts, Highchart } as const;
   const [lib, setLib] = useState<keyof typeof chartComponents>("ChartJS");
   const ChartComponent = chartComponents[lib];
 

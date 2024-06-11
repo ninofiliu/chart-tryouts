@@ -1,4 +1,5 @@
-library,candle,tree,tree map,sankey,gauge,github calendar,flame,3D map,3D bar
-echarts,true,true,true,true,true,true,true,true,true
-chart.js,false,false,false,false,false,false,false,false,false
-react-charts,false,false,false,false,false,false,false,false,false
+library,candle,tree,tree map,sankey,gauge,github calendar,flame,3D map,3D bar,venn diagram,dependency wheel,parliament
+echarts,true,true,true,true,true,true,true,true,true,false,false,false
+chart.js,false,false,false,false,false,false,false,false,false,false,false,false
+react-charts,false,false,false,false,false,false,false,false,false,false,false,false
+highcharts,true,true,true,true,true,false,true,true,true,true,true,true

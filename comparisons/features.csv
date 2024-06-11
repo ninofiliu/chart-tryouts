@@ -2,3 +2,4 @@ library,documentation,typescript support,performances,animations,container respo
 echarts,good,good,15000,good,good,good,good,good,true,true
 chart.js,good,good,2000,bad,good,good,bad,good,true,true
 react-charts,bad,good,500,bad,good,good,bad,bad,true,true
+highcharts,excellent,good,20000,good,excellent,,,,,

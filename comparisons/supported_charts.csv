@@ -1,4 +1,5 @@
-library,leaderboard,line,bar,stackedbar,waterfall,barline,map,bubble,radar,funnel,timeline,donut,sunburst
-echarts,true,true,true,true,true,true,true,true,true,true,true,true,true
-chart.js,true,true,true,true,false,false,false,true,true,false,false,true,false
-react-charts,true,true,true,true,false,true,false,true,true,false,false,false,false
+library,leaderboard,line,bar,stackedbar,waterfall,barline,map,bubble,radar,funnel,timeline,circular,drilled circular,gantt
+echarts,true,true,true,true,true,true,true,true,true,true,true,true,true,false
+chart.js,true,true,true,true,false,false,false,true,true,false,false,true,false,false
+react-charts,true,true,true,true,false,true,false,true,true,false,false,false,false,false
+highcharts,true,true,true,true,true,true,true,true,true,true,true,true,true,true

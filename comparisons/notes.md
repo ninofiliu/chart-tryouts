@@ -15,3 +15,11 @@ Docs is very sparse, mostly consisting in a huge codesandbox with all the exampl
 I couldn't really distinguish bugs from misconfigurations.
 
 Options are not JSDoc'ed so that makes things even more difficult.
+
+# Highcharts
+
+Sadly the only paid option, highcharts however goes above and beyond in all categories.
+
+It has every perk of echarts and adds some more.
+
+Special shoutout to the highchart-gpt that allowed me to setup a working chart in react that was responsive to the parent element in literally 1mn.
