@@ -1,34 +1,41 @@
 import Chart from "chart.js/auto";
-import { useState } from "react";
-import type { data as dataType } from "./data";
+import { useEffect, useState } from "react";
+import { Row } from "./data";
 
-export const ChartJS = ({ data }: { data: typeof dataType }) => {
+export const ChartJS = ({ data }: { data: Row[] }) => {
   const [chart, setChart] = useState<Chart | null>(null);
-  return (
-    <canvas
-      ref={(elt) => {
-        if (!elt) return;
-        if (chart) return;
-        setChart(
-          new Chart(elt, {
-            type: "line",
-            data: {
-              labels: data.map((row) => row.category),
-              datasets: [
-                {
-                  label: "Acquisitions by year",
-                  data: data.map((row) => row.float),
-                  borderColor: "red",
-                  backgroundColor: "pink",
-                },
-              ],
+  const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    if (!canvas) return;
+    if (chart) chart.destroy();
+    setChart(
+      new Chart(canvas, {
+        type: "line",
+        data: {
+          labels: data.map((row) => row.category),
+          datasets: [
+            {
+              label: "Acquisitions by year",
+              data: data.map((row) => row.float),
+              borderColor: "red",
+              backgroundColor: "pink",
             },
-            options: {
-              maintainAspectRatio: false,
-            },
-          })
-        );
-      }}
-    />
-  );
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          events: ["click"],
+        },
+        plugins: [
+          {
+            id: "my_event_catcher",
+            beforeEvent: console.log,
+          },
+        ],
+      })
+    );
+  }, [canvas, data]);
+
+  return <canvas ref={setCanvas} />;
 };

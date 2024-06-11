@@ -1,6 +1,7 @@
 import { Resizable } from "./Resizable";
 import { ReactCharts } from "./ReactCharts";
 import { useState } from "react";
+import { ChartJS } from "./ChartJS";
 
 const generateData = (n: number) =>
   Array(n)
@@ -17,6 +18,10 @@ export const App = () => {
   const n = +ns || 1;
   const data = generateData(n);
 
+  const chartComponents = { ReactCharts, ChartJS } as const;
+  const [lib, setLib] = useState<keyof typeof chartComponents>("ChartJS");
+  const ChartComponent = chartComponents[lib];
+
   return (
     <>
       <div>
@@ -25,9 +30,21 @@ export const App = () => {
           value={ns}
           onChange={(evt) => setNs(evt.target.value)}
         />
+        <select
+          value={lib}
+          onChange={(evt) =>
+            setLib(evt.target.value as keyof typeof chartComponents)
+          }
+        >
+          {Object.keys(chartComponents).map((key) => (
+            <option key={key} value={key}>
+              {key}
+            </option>
+          ))}
+        </select>
       </div>
       <Resizable>
-        <ReactCharts data={data} />
+        <ChartComponent data={data} />
       </Resizable>
     </>
   );

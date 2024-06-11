@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 let fps = 0;
 setInterval(() => {
-  console.log({ fps });
+  document.getElementById("fps")!.innerHTML = `${fps}`;
   fps = 0;
 }, 1000);
 const loop = () => {

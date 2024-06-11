@@ -6,6 +6,8 @@ Can dynamically update the config, but on serie data change, redraws the whole s
 
 Errors are hard to understand. API can feel awkward. I just couldn't make a linechart with time x axis. The code from the official demo didn't work.
 
+Another awkwardness is event handlers only passing up coordinates that you have to convert back into data points to find the clicked row.
+
 # React Charts
 
 Docs is very sparse, mostly consisting in a huge codesandbox with all the examples that you have to reverse engineer to understand how things work.
